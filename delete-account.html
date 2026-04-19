@@ -143,6 +143,15 @@
     line-height: 1.55;
   }
   .disclaimer a { color: var(--text-tertiary); text-decoration: underline; }
+  .success-state { text-align: center; padding: 12px 0; }
+  .success-state h3 {
+    font-family: 'Noto Serif', serif;
+    color: var(--accent);
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+  }
+  .success-state p { color: var(--text-secondary); margin: 0; }
+  button:disabled { opacity: 0.6; cursor: wait; }
   @media (max-width: 480px) {
     body { padding: 32px 16px 60px; }
     h1 { font-size: 1.75rem; }
@@ -176,7 +185,7 @@
 
   <h2>Submit your request</h2>
   <div class="card">
-    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <form action="https://formspree.io/f/xdayzpdk" method="POST">
       <div class="field">
         <label for="email">Account email</label>
         <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@example.com">
@@ -206,5 +215,41 @@
     <a href="/terms">Terms of Use</a>
   </div>
 </div>
+
+<script>
+  (function () {
+    var form = document.querySelector('form');
+    var card = document.querySelector('.card');
+    if (!form || !card) return;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var button = form.querySelector('button');
+      var originalText = button.textContent;
+      button.textContent = 'Submitting\u2026';
+      button.disabled = true;
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      })
+        .then(function (response) {
+          if (!response.ok) throw new Error('Submission failed');
+          card.innerHTML =
+            '<div class="success-state">' +
+              '<h3>Request received</h3>' +
+              '<p>Thanks. We\u2019ll reply from cltready@openmindsetgroup.com within a few days to verify your identity. Your account and all associated practice data will be permanently deleted within 30 days of that confirmation.</p>' +
+            '</div>';
+          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        })
+        .catch(function () {
+          button.textContent = originalText;
+          button.disabled = false;
+          alert('Something went wrong. Please email us directly at cltready@openmindsetgroup.com.');
+        });
+    });
+  })();
+</script>
 </body>
 </html>
