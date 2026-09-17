@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>CLT Ready — Mobile CLT Prep App for Homeschool Families</title>
 <meta name="description" content="Free CLT practice questions on your phone. 535+ original questions, timed practice tests, and score tracking. Download CLT Ready today."/>
+<meta name="apple-itunes-app" content="app-id=6762268552"/>
 <meta name="keywords" content="CLT prep app, CLT practice test, Classic Learning Test prep, CLT study app, homeschool CLT prep"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -128,6 +129,20 @@ section { padding: 5rem 0; }
   margin-top: 1.5rem;
   position: relative; z-index: 1;
 }
+.store-badges {
+  display: flex; gap: 1rem; justify-content: center; align-items: center;
+  flex-wrap: wrap;
+}
+.store-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 52px; overflow: hidden;
+  transition: opacity 0.2s;
+}
+.store-badge:hover { opacity: 0.85; }
+.store-badge img { display: block; height: 52px; width: auto; }
+/* Google's official badge PNG includes transparent padding; crop it so both badges match. */
+.store-badge.google img { height: 78px; margin: 0 -10px; }
+.final-cta .store-badges { position: relative; z-index: 1; }
 .badge-google {
   display: inline-block;
   height: 52px;
@@ -526,15 +541,13 @@ footer {
   <h1>Get <span>CLT Ready.</span></h1>
   <p class="sub">Mobile-native CLT practice with 535+ original questions, instant feedback, and score tracking across all three sections. Free to start.</p>
   <a href="#final-cta" class="btn-primary">Try It Free</a>
-  <div class="badges">
-    <span class="badge-apple">
-      <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>
-      Google Play — Coming Soon
-    </span>
-    <span class="badge-apple">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-      App Store — Coming Soon
-    </span>
+  <div class="badges store-badges">
+    <a class="store-badge" href="https://apps.apple.com/us/app/clt-ready-practice-exams/id6762268552" target="_blank" rel="noopener">
+      <img src="images/app-store-badge.svg" alt="Download on the App Store"/>
+    </a>
+    <a class="store-badge google" href="https://play.google.com/store/apps/details?id=app.cltready.mobile" target="_blank" rel="noopener">
+      <img src="images/google-play-badge.png" alt="Get it on Google Play"/>
+    </a>
   </div>
 </section>
 
@@ -590,7 +603,7 @@ footer {
     <div class="steps">
       <div class="step">
         <span class="step-num">1</span>
-        <div class="step-text"><strong>Download the app</strong>Free on Android and iPhone. Coming soon to both stores.</div>
+        <div class="step-text"><strong>Download the app</strong>Free on iPhone and Android, from the App Store and Google Play.</div>
       </div>
       <div class="step">
         <span class="step-num">2</span>
@@ -702,7 +715,7 @@ footer {
       </div>
       <div class="faq-item">
         <button class="faq-q">What platforms is CLT Ready available on?<span class="arrow">▾</span></button>
-        <div class="faq-a"><p>CLT Ready is coming soon to both Android (Google Play) and iPhone (App Store). Sign up below to get notified when it launches.</p></div>
+        <div class="faq-a"><p>CLT Ready is available now for iPhone on the <a href="https://apps.apple.com/us/app/clt-ready-practice-exams/id6762268552" target="_blank" rel="noopener">App Store</a> and for Android on <a href="https://play.google.com/store/apps/details?id=app.cltready.mobile" target="_blank" rel="noopener">Google Play</a>.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">Will you add parent progress reports?<span class="arrow">▾</span></button>
@@ -717,7 +730,14 @@ footer {
   <div class="container">
     <span class="section-label">Get Started</span>
     <h2 class="section-heading">Get CLT Ready. Start free today.</h2>
-    <span class="btn-primary" style="opacity:0.85;cursor:default;">Coming Soon to Android &amp; iPhone</span>
+    <div class="store-badges">
+      <a class="store-badge" href="https://apps.apple.com/us/app/clt-ready-practice-exams/id6762268552" target="_blank" rel="noopener">
+        <img src="images/app-store-badge.svg" alt="Download on the App Store"/>
+      </a>
+      <a class="store-badge google" href="https://play.google.com/store/apps/details?id=app.cltready.mobile" target="_blank" rel="noopener">
+        <img src="images/google-play-badge.png" alt="Get it on Google Play"/>
+      </a>
+    </div>
     <p style="margin-top:2rem; color:var(--on-surface-variant); font-size:0.9375rem;">Enter your email to get updates and new feature announcements.</p>
     <form class="email-form" onsubmit="handleSignup(event)">
       <input type="email" placeholder="your@email.com" required aria-label="Email address"/>
