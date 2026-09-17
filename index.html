@@ -449,42 +449,6 @@ section { padding: 5rem 0; }
   background: var(--surface-container-low);
   text-align: center;
 }
-.email-form {
-  display: flex;
-  max-width: 460px; margin: 2rem auto 0;
-  gap: 0;
-  border-radius: 0.375rem;
-  overflow: hidden;
-}
-.email-form input {
-  flex: 1;
-  padding: 0.9375rem 1.25rem;
-  font-size: 0.9375rem;
-  font-family: 'Inter', sans-serif;
-  background: var(--surface-container-highest);
-  color: var(--on-surface);
-  border: none;
-  outline: none;
-  min-width: 0;
-  transition: background 0.2s;
-}
-.email-form input::placeholder { color: var(--tertiary); }
-.email-form input:focus { background: var(--surface-bright); }
-.email-form button {
-  padding: 0.9375rem 1.5rem;
-  background: linear-gradient(135deg, var(--primary), var(--primary-container));
-  color: var(--on-primary);
-  font-weight: 700; font-size: 0.8rem;
-  text-transform: uppercase; letter-spacing: 0.08em;
-  white-space: nowrap;
-  transition: opacity 0.2s;
-}
-.email-form button:hover { opacity: 0.9; }
-.cta-note {
-  margin-top: 0.75rem;
-  font-size: 0.8125rem;
-  color: var(--tertiary);
-}
 
 /* ── Footer ── */
 footer {
@@ -643,7 +607,7 @@ footer {
       <div class="price-card premium">
         <span class="price-label">Premium</span>
         <div class="price-amount gold">$9.99<span style="font-size:1rem;font-weight:400;color:var(--on-surface-variant)">/mo</span></div>
-        <div class="price-period">or $69.99/year — save 42%</div>
+        <div class="price-period">or $79.99/year — save 33%</div>
         <ul>
           <li>Full 535+ question bank</li>
           <li>Verbal Reasoning, Grammar &amp; Writing, Quantitative Reasoning</li>
@@ -655,7 +619,7 @@ footer {
         <a href="#final-cta" class="btn-primary" style="text-align:center; margin-top:auto;">Start Free, Upgrade Anytime</a>
       </div>
     </div>
-    <p class="pricing-context">For comparison: other CLT prep courses charge <strong>$99 per student</strong> for 12 months. CLT Ready premium is <strong>$69.99/year</strong>.</p>
+    <p class="pricing-context">For comparison: other CLT prep courses charge <strong>$99 per student</strong> for 12 months. CLT Ready premium is <strong>$79.99/year</strong>.</p>
   </div>
 </section>
 
@@ -719,7 +683,7 @@ footer {
       </div>
       <div class="faq-item">
         <button class="faq-q">Will you add parent progress reports?<span class="arrow">▾</span></button>
-        <div class="faq-a"><p>Yes — it's on our roadmap. We're building email-based progress reports so parents can see scores, section breakdowns, and time spent after each session. Sign up below to get notified when it launches.</p></div>
+        <div class="faq-a"><p>Yes — it's on our roadmap. We're building email-based progress reports so parents can see scores, section breakdowns, and time spent after each session.</p></div>
       </div>
     </div>
   </div>
@@ -738,12 +702,6 @@ footer {
         <img src="images/google-play-badge.png" alt="Get it on Google Play"/>
       </a>
     </div>
-    <p style="margin-top:2rem; color:var(--on-surface-variant); font-size:0.9375rem;">Enter your email to get updates and new feature announcements.</p>
-    <form class="email-form" onsubmit="handleSignup(event)">
-      <input type="email" placeholder="your@email.com" required aria-label="Email address"/>
-      <button type="submit">Notify Me</button>
-    </form>
-    <p class="cta-note">No spam. Just updates and new features.</p>
   </div>
 </section>
 
@@ -779,17 +737,6 @@ document.querySelectorAll('.faq-q').forEach(btn => {
     if (!isOpen) item.classList.add('open');
   });
 });
-
-// Email signup placeholder
-function handleSignup(e) {
-  e.preventDefault();
-  const input = e.target.querySelector('input');
-  const email = input.value;
-  // TODO: Hook up to Resend
-  input.value = '';
-  input.placeholder = 'You\'re on the list!';
-  setTimeout(() => { input.placeholder = 'your@email.com'; }, 3000);
-}
 </script>
 
 </body>
