@@ -314,7 +314,7 @@ footer {
 <section class="legal-hero container">
   <span class="section-label">Legal</span>
   <h1>Privacy Policy</h1>
-  <p class="dates">Effective <span>April 10, 2026</span> · Last Updated <span>April 10, 2026</span></p>
+  <p class="dates">Effective <span>April 10, 2026</span> · Last Updated <span>September 26, 2026</span></p>
 </section>
 
 <!-- ═══ Body ═══ -->
@@ -330,7 +330,7 @@ footer {
       <p>At account creation, users must affirm they are <strong>13 years of age or older</strong> by checking a box. Any account we discover to belong to a user under 13 will be terminated and associated data deleted. If you are a parent or guardian and believe your child under 13 has provided us personal information, contact us at <a href="mailto:cltready@openmindsetgroup.com">cltready@openmindsetgroup.com</a> and we will delete it promptly.</p>
 
       <h2><span class="num">2.</span>Information We Collect</h2>
-      <p>We collect only what the Service needs to function. We do <strong>not</strong> collect date of birth, age beyond the 13+ attestation, government IDs, payment card details, precise geolocation, analytics telemetry, crash reports, advertising identifiers, or biometric data.</p>
+      <p>We collect only what the Service needs to function. We do <strong>not</strong> collect date of birth, age beyond the 13+ attestation, government IDs, payment card details, precise geolocation, advertising identifiers, or biometric data, and we do not use third-party advertising or marketing analytics.</p>
 
       <h3>2.1 Information You Provide</h3>
       <ul>
@@ -348,8 +348,18 @@ footer {
         <li><strong>Local app state:</strong> onboarding progress, current quiz state, app launch count, and authentication tokens. This information is stored in AsyncStorage on your device and is cleared when you uninstall the app or delete your account from within the app.</li>
       </ul>
 
-      <h3>2.4 Information We Do Not Collect in This Version</h3>
-      <p>CLT Ready v1.0 does <strong>not</strong> collect parent or guardian contact information, and does <strong>not</strong> provide parent progress reports. If we add these features in a future version, we will update this Privacy Policy and notify users before the features go live.</p>
+      <h3>2.4 Diagnostic and Crash Information</h3>
+      <p>When the app crashes or encounters an error, it sends a diagnostic report to our error-monitoring provider, Sentry, so we can find and fix the problem. A report may include:</p>
+      <ul>
+        <li><strong>Error details:</strong> the error message and technical stack trace, and whether the app crashed or stopped responding.</li>
+        <li><strong>App and device information:</strong> app version, device manufacturer and model, operating system version, language and time zone settings, screen size, available memory and storage, battery level, and network type.</li>
+        <li><strong>Recent app events:</strong> a short log of what happened in the app just before the error, such as screens opened, buttons tapped, and the status of network requests (not their contents).</li>
+        <li><strong>Identifiers:</strong> a random identifier generated for your app installation and, if you are signed in, your internal CLT Ready account ID.</li>
+      </ul>
+      <p>Diagnostic reports do <strong>not</strong> include your email address, name, onboarding responses, practice answers, payment information, advertising identifiers, or location. We configure Sentry not to store IP addresses or any location derived from them. Diagnostic reports are used only to maintain and fix the Service, never for advertising.</p>
+
+      <h3>2.5 Information We Do Not Collect in This Version</h3>
+      <p>CLT Ready does <strong>not</strong> collect parent or guardian contact information, and does <strong>not</strong> provide parent progress reports. If we add these features in a future version, we will update this Privacy Policy and notify users before the features go live.</p>
 
       <h2><span class="num">3.</span>How We Use Your Information</h2>
       <p>We use the information above to:</p>
@@ -357,6 +367,7 @@ footer {
         <li>Provide and operate the Service (deliver practice questions, score attempts, track progress).</li>
         <li>Personalize your study experience based on onboarding responses and performance.</li>
         <li>Maintain and secure your account, including authentication.</li>
+        <li>Diagnose and fix crashes, errors, and other technical problems.</li>
         <li>Process and manage your subscription, if you purchase one.</li>
         <li>Communicate with you about the Service (account notices, policy updates, support replies).</li>
         <li>Comply with legal obligations and enforce our Terms of Service.</li>
@@ -373,6 +384,7 @@ footer {
           <tbody>
             <tr><td><strong>Supabase</strong></td><td>Backend database, authentication, edge functions</td><td>All account, onboarding, and performance data</td></tr>
             <tr><td><strong>RevenueCat</strong></td><td>Subscription management</td><td>Anonymous user ID, purchase and subscription events</td></tr>
+            <tr><td><strong>Sentry</strong></td><td>Crash and error reporting</td><td>Error details and stack traces, app and device information, recent in-app events, installation ID, and internal account ID (no email, name, or IP address)</td></tr>
             <tr><td><strong>Google Sign-In</strong></td><td>Optional authentication</td><td>Email and name (from your Google account)</td></tr>
             <tr><td><strong>Apple Sign-In</strong></td><td>Optional authentication</td><td>Email and name (first sign-in only)</td></tr>
             <tr><td><strong>Apple App Store / Google Play</strong></td><td>Subscription processing</td><td>Payment handled entirely by the platform; we never receive your card details</td></tr>
@@ -382,7 +394,7 @@ footer {
       <p>Each provider has its own privacy policy that governs its handling of data we pass to it.</p>
 
       <h2><span class="num">5.</span>Data Storage and Security</h2>
-      <p>Your data is stored in Supabase (PostgreSQL) with <strong>row-level security</strong>, meaning each user can only access their own records. Data is transmitted over TLS. Authentication tokens are stored in AsyncStorage on your device.</p>
+      <p>Your data is stored in Supabase (PostgreSQL) with <strong>row-level security</strong>, meaning each user can only access their own records. Data is transmitted over TLS. Authentication tokens are stored in AsyncStorage on your device. Diagnostic reports are transmitted over TLS to Sentry and stored on its servers in the United States.</p>
       <p>No system is perfectly secure. We use commercially reasonable safeguards appropriate to the sensitivity of the data, but we cannot guarantee absolute security.</p>
 
       <h2><span class="num">6.</span>Data Retention and Deletion</h2>
@@ -390,7 +402,8 @@ footer {
       <ul>
         <li><strong>Account deletion:</strong> you can delete your account at any time from the Profile screen within the app.</li>
         <li><strong>Cascade deletion:</strong> when you delete your account, we immediately delete your authentication record from Supabase Auth along with all associated attempts, answers, and onboarding data. Local AsyncStorage on your device is also cleared.</li>
-        <li><strong>No retention period:</strong> deleted data is removed immediately, not queued or archived.</li>
+        <li><strong>No retention period for account data:</strong> deleted account, onboarding, and performance data is removed immediately, not queued or archived.</li>
+        <li><strong>Diagnostic reports:</strong> crash and error reports are retained by Sentry for up to 90 days and then deleted automatically. They are not removed by in-app account deletion; to request earlier deletion of reports associated with your account, email <a href="mailto:cltready@openmindsetgroup.com">cltready@openmindsetgroup.com</a>.</li>
         <li><strong>Backups:</strong> routine database backups may retain data for a limited period before being overwritten in the ordinary course of backup rotation.</li>
       </ul>
 
